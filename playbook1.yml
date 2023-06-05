@@ -1,0 +1,12 @@
+-hostname:webserver
+ become: true 
+ become_user: root
+ tasks:
+ - name: install httpd package 
+ package: name=httpd state=present 
+ - name: start httpd service 
+  servvice: name=httpd state=started 
+  - name: Deploy the html code
+  copy: src=index.hmtl dest=/var/www/html
+  -name: Restart httpd
+  servvice: name=httpd state=restarted 
